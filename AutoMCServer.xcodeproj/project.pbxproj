@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5479A09E1A8AD863003514DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479A09D1A8AD863003514DB /* AppDelegate.swift */; };
+		5479A0A01A8AD863003514DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479A09F1A8AD863003514DB /* ViewController.swift */; };
+		5479A0A21A8AD863003514DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5479A0A11A8AD863003514DB /* Images.xcassets */; };
+		5479A0A51A8AD863003514DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5479A0A31A8AD863003514DB /* Main.storyboard */; };
+		5479A0B11A8AD863003514DB /* AutoMCServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479A0B01A8AD863003514DB /* AutoMCServerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5479A0AB1A8AD863003514DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5479A0901A8AD863003514DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5479A0971A8AD863003514DB;
+			remoteInfo = AutoMCServer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5479A0981A8AD863003514DB /* AutoMCServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoMCServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5479A09C1A8AD863003514DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5479A09D1A8AD863003514DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5479A09F1A8AD863003514DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5479A0A11A8AD863003514DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5479A0A41A8AD863003514DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5479A0AA1A8AD863003514DB /* AutoMCServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoMCServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5479A0AF1A8AD863003514DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5479A0B01A8AD863003514DB /* AutoMCServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMCServerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5479A0951A8AD863003514DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5479A0A71A8AD863003514DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5479A08F1A8AD863003514DB = {
+			isa = PBXGroup;
+			children = (
+				5479A09A1A8AD863003514DB /* AutoMCServer */,
+				5479A0AD1A8AD863003514DB /* AutoMCServerTests */,
+				5479A0991A8AD863003514DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5479A0991A8AD863003514DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5479A0981A8AD863003514DB /* AutoMCServer.app */,
+				5479A0AA1A8AD863003514DB /* AutoMCServerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5479A09A1A8AD863003514DB /* AutoMCServer */ = {
+			isa = PBXGroup;
+			children = (
+				5479A09D1A8AD863003514DB /* AppDelegate.swift */,
+				5479A09F1A8AD863003514DB /* ViewController.swift */,
+				5479A0A11A8AD863003514DB /* Images.xcassets */,
+				5479A0A31A8AD863003514DB /* Main.storyboard */,
+				5479A09B1A8AD863003514DB /* Supporting Files */,
+			);
+			path = AutoMCServer;
+			sourceTree = "<group>";
+		};
+		5479A09B1A8AD863003514DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5479A09C1A8AD863003514DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5479A0AD1A8AD863003514DB /* AutoMCServerTests */ = {
+			isa = PBXGroup;
+			children = (
+				5479A0B01A8AD863003514DB /* AutoMCServerTests.swift */,
+				5479A0AE1A8AD863003514DB /* Supporting Files */,
+			);
+			path = AutoMCServerTests;
+			sourceTree = "<group>";
+		};
+		5479A0AE1A8AD863003514DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5479A0AF1A8AD863003514DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5479A0971A8AD863003514DB /* AutoMCServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5479A0B41A8AD863003514DB /* Build configuration list for PBXNativeTarget "AutoMCServer" */;
+			buildPhases = (
+				5479A0941A8AD863003514DB /* Sources */,
+				5479A0951A8AD863003514DB /* Frameworks */,
+				5479A0961A8AD863003514DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoMCServer;
+			productName = AutoMCServer;
+			productReference = 5479A0981A8AD863003514DB /* AutoMCServer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5479A0A91A8AD863003514DB /* AutoMCServerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5479A0B71A8AD863003514DB /* Build configuration list for PBXNativeTarget "AutoMCServerTests" */;
+			buildPhases = (
+				5479A0A61A8AD863003514DB /* Sources */,
+				5479A0A71A8AD863003514DB /* Frameworks */,
+				5479A0A81A8AD863003514DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5479A0AC1A8AD863003514DB /* PBXTargetDependency */,
+			);
+			name = AutoMCServerTests;
+			productName = AutoMCServerTests;
+			productReference = 5479A0AA1A8AD863003514DB /* AutoMCServerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5479A0901A8AD863003514DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Tristen Miller";
+				TargetAttributes = {
+					5479A0971A8AD863003514DB = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					5479A0A91A8AD863003514DB = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 5479A0971A8AD863003514DB;
+					};
+				};
+			};
+			buildConfigurationList = 5479A0931A8AD863003514DB /* Build configuration list for PBXProject "AutoMCServer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5479A08F1A8AD863003514DB;
+			productRefGroup = 5479A0991A8AD863003514DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5479A0971A8AD863003514DB /* AutoMCServer */,
+				5479A0A91A8AD863003514DB /* AutoMCServerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5479A0961A8AD863003514DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5479A0A21A8AD863003514DB /* Images.xcassets in Resources */,
+				5479A0A51A8AD863003514DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5479A0A81A8AD863003514DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5479A0941A8AD863003514DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5479A0A01A8AD863003514DB /* ViewController.swift in Sources */,
+				5479A09E1A8AD863003514DB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5479A0A61A8AD863003514DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5479A0B11A8AD863003514DB /* AutoMCServerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5479A0AC1A8AD863003514DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5479A0971A8AD863003514DB /* AutoMCServer */;
+			targetProxy = 5479A0AB1A8AD863003514DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5479A0A31A8AD863003514DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5479A0A41A8AD863003514DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5479A0B21A8AD863003514DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5479A0B31A8AD863003514DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5479A0B51A8AD863003514DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AutoMCServer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5479A0B61A8AD863003514DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AutoMCServer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5479A0B81A8AD863003514DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AutoMCServerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoMCServer.app/Contents/MacOS/AutoMCServer";
+			};
+			name = Debug;
+		};
+		5479A0B91A8AD863003514DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AutoMCServerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoMCServer.app/Contents/MacOS/AutoMCServer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5479A0931A8AD863003514DB /* Build configuration list for PBXProject "AutoMCServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5479A0B21A8AD863003514DB /* Debug */,
+				5479A0B31A8AD863003514DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5479A0B41A8AD863003514DB /* Build configuration list for PBXNativeTarget "AutoMCServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5479A0B51A8AD863003514DB /* Debug */,
+				5479A0B61A8AD863003514DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5479A0B71A8AD863003514DB /* Build configuration list for PBXNativeTarget "AutoMCServerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5479A0B81A8AD863003514DB /* Debug */,
+				5479A0B91A8AD863003514DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5479A0901A8AD863003514DB /* Project object */;
+}

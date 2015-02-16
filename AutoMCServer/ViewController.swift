@@ -1,27 +1,58 @@
-//
-//  ViewController.swift
-//  AutoMCServer
-//
-//  Created by Tristen Miller on 2/10/15.
-//  Copyright (c) 2015 Tristen Miller. All rights reserved.
-//
-
 import Cocoa
 
 class ViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        if let segue = segue as? DismissSegue {
+            segue.nextViewControllerIdentifier = "SecondView"
+        }
+        var ramv = ram.integerValue
+        var bytesize = "M"
+        if bytes.titleOfSelectedItem == "Megabytes" {
+            ramv = ramv == 0 ? 1024 : ramv
+        } else {
+            bytesize = "G"
+            ramv = ramv == 0 ? 2 : ramv
+        }
+        let options = ServerOptions(path: folder.path!, servertype: getServerType(), ram: ramv, bytesize: bytesize, username: username.stringValue)
+        Data.options = options
     }
+    
+    var folder: NSURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Desktop"))!
+    
+    @IBOutlet var folderpath: NSTextField!
+    @IBOutlet var servertype: NSSegmentedControl!
+    @IBOutlet var ram: NSTextField!
+    @IBOutlet var bytes: NSPopUpButton!
+    @IBOutlet var username: NSTextField!
 
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
+    @IBAction func choosefolder(sender: AnyObject) {
+        var openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = true
+        openPanel.canCreateDirectories = true
+        openPanel.canChooseFiles = false
+        openPanel.beginWithCompletionHandler { (result) -> Void in
+            if result == NSFileHandlingPanelOKButton {
+                self.folder = openPanel.URLs[0] as NSURL
+                self.folderpath.stringValue = self.folder.lastPathComponent!
+            }
         }
     }
-
-
+    
+    @IBAction func changebytes(sender: AnyObject) {
+        if bytes.titleOfSelectedItem == "Megabytes" {
+           ram.placeholderString = "1024"
+        } else {
+            ram.placeholderString = "2"
+        }
+    }
+    
+    func getServerType() -> ServerType {
+        return ServerType(rawValue: servertype.labelForSegment(servertype.selectedSegment)!)!
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 

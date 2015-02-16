@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543C4A341A8C0E5500C66E17 /* CreateServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C4A331A8C0E5500C66E17 /* CreateServer.swift */; };
+		54424E111A901AD200F3E7FE /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54424E101A901AD200F3E7FE /* TaskQueue.swift */; };
+		5459A48A1A9154040036C1DE /* Crafting Table.png in Resources */ = {isa = PBXBuildFile; fileRef = 5459A4891A9154040036C1DE /* Crafting Table.png */; };
+		5459A48C1A915BA60036C1DE /* donate_paypal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5459A48B1A915BA60036C1DE /* donate_paypal.png */; };
+		5459A48E1A9161D00036C1DE /* CompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5459A48D1A9161D00036C1DE /* CompletedView.swift */; };
 		5479A09E1A8AD863003514DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479A09D1A8AD863003514DB /* AppDelegate.swift */; };
 		5479A0A01A8AD863003514DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479A09F1A8AD863003514DB /* ViewController.swift */; };
 		5479A0A21A8AD863003514DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5479A0A11A8AD863003514DB /* Images.xcassets */; };
 		5479A0A51A8AD863003514DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5479A0A31A8AD863003514DB /* Main.storyboard */; };
 		5479A0B11A8AD863003514DB /* AutoMCServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479A0B01A8AD863003514DB /* AutoMCServerTests.swift */; };
+		548FDDF41A9199EC0012D63B /* SwiftJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548FDDF31A9199EC0012D63B /* SwiftJSON.swift */; };
+		54A9B3A41A8C123E00859805 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A9B3A21A8C123E00859805 /* MasterViewController.swift */; };
+		54A9B3A71A8C1E7B00859805 /* ServerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A9B3A61A8C1E7B00859805 /* ServerOptions.swift */; };
+		54A9B3A91A8C2FDF00859805 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A9B3A81A8C2FDF00859805 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		543C4A331A8C0E5500C66E17 /* CreateServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateServer.swift; sourceTree = "<group>"; };
+		54424E101A901AD200F3E7FE /* TaskQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskQueue.swift; sourceTree = "<group>"; };
+		5459A4891A9154040036C1DE /* Crafting Table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crafting Table.png"; sourceTree = "<group>"; };
+		5459A48B1A915BA60036C1DE /* donate_paypal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = donate_paypal.png; sourceTree = "<group>"; };
+		5459A48D1A9161D00036C1DE /* CompletedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedView.swift; sourceTree = "<group>"; };
 		5479A0981A8AD863003514DB /* AutoMCServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoMCServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5479A09C1A8AD863003514DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5479A09D1A8AD863003514DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +48,10 @@
 		5479A0AA1A8AD863003514DB /* AutoMCServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoMCServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5479A0AF1A8AD863003514DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5479A0B01A8AD863003514DB /* AutoMCServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMCServerTests.swift; sourceTree = "<group>"; };
+		548FDDF31A9199EC0012D63B /* SwiftJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftJSON.swift; sourceTree = "<group>"; };
+		54A9B3A21A8C123E00859805 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		54A9B3A61A8C1E7B00859805 /* ServerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerOptions.swift; sourceTree = "<group>"; };
+		54A9B3A81A8C2FDF00859805 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +94,17 @@
 			isa = PBXGroup;
 			children = (
 				5479A09D1A8AD863003514DB /* AppDelegate.swift */,
+				54A9B3A21A8C123E00859805 /* MasterViewController.swift */,
 				5479A09F1A8AD863003514DB /* ViewController.swift */,
+				543C4A331A8C0E5500C66E17 /* CreateServer.swift */,
+				5459A48D1A9161D00036C1DE /* CompletedView.swift */,
+				54424E101A901AD200F3E7FE /* TaskQueue.swift */,
+				548FDDF31A9199EC0012D63B /* SwiftJSON.swift */,
+				54A9B3A61A8C1E7B00859805 /* ServerOptions.swift */,
+				54A9B3A81A8C2FDF00859805 /* Data.swift */,
 				5479A0A11A8AD863003514DB /* Images.xcassets */,
+				5459A4891A9154040036C1DE /* Crafting Table.png */,
+				5459A48B1A915BA60036C1DE /* donate_paypal.png */,
 				5479A0A31A8AD863003514DB /* Main.storyboard */,
 				5479A09B1A8AD863003514DB /* Supporting Files */,
 			);
@@ -190,7 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5479A0A21A8AD863003514DB /* Images.xcassets in Resources */,
+				5459A48C1A915BA60036C1DE /* donate_paypal.png in Resources */,
 				5479A0A51A8AD863003514DB /* Main.storyboard in Resources */,
+				5459A48A1A9154040036C1DE /* Crafting Table.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +237,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54A9B3A41A8C123E00859805 /* MasterViewController.swift in Sources */,
+				54A9B3A91A8C2FDF00859805 /* Data.swift in Sources */,
+				543C4A341A8C0E5500C66E17 /* CreateServer.swift in Sources */,
+				54424E111A901AD200F3E7FE /* TaskQueue.swift in Sources */,
+				548FDDF41A9199EC0012D63B /* SwiftJSON.swift in Sources */,
 				5479A0A01A8AD863003514DB /* ViewController.swift in Sources */,
 				5479A09E1A8AD863003514DB /* AppDelegate.swift in Sources */,
+				5459A48E1A9161D00036C1DE /* CompletedView.swift in Sources */,
+				54A9B3A71A8C1E7B00859805 /* ServerOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +433,7 @@
 				5479A0B61A8AD863003514DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5479A0B71A8AD863003514DB /* Build configuration list for PBXNativeTarget "AutoMCServerTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +442,7 @@
 				5479A0B91A8AD863003514DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func help(sender: AnyObject) {
-        var help = NSURL(string: "http://minecraft.gamepedia.com/Server.properties")
+        var help = NSURL(string: "http://hawkfalcon.com")
         NSWorkspace.sharedWorkspace().openURL(help!)
     }
 }

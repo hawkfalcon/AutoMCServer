@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5414CD8E1A92C4B100703B93 /* ServerProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414CD8D1A92C4B100703B93 /* ServerProperties.swift */; };
+		542296881A91AA24001EB0CB /* server.properties in Resources */ = {isa = PBXBuildFile; fileRef = 542296871A91AA24001EB0CB /* server.properties */; };
 		543C4A341A8C0E5500C66E17 /* CreateServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C4A331A8C0E5500C66E17 /* CreateServer.swift */; };
 		54424E111A901AD200F3E7FE /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54424E101A901AD200F3E7FE /* TaskQueue.swift */; };
 		5459A48A1A9154040036C1DE /* Crafting Table.png in Resources */ = {isa = PBXBuildFile; fileRef = 5459A4891A9154040036C1DE /* Crafting Table.png */; };
@@ -22,17 +24,9 @@
 		54A9B3A91A8C2FDF00859805 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A9B3A81A8C2FDF00859805 /* Data.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5479A0AB1A8AD863003514DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5479A0901A8AD863003514DB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5479A0971A8AD863003514DB;
-			remoteInfo = AutoMCServer;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		5414CD8D1A92C4B100703B93 /* ServerProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerProperties.swift; sourceTree = "<group>"; };
+		542296871A91AA24001EB0CB /* server.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = server.properties; sourceTree = "<group>"; };
 		543C4A331A8C0E5500C66E17 /* CreateServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateServer.swift; sourceTree = "<group>"; };
 		54424E101A901AD200F3E7FE /* TaskQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskQueue.swift; sourceTree = "<group>"; };
 		5459A4891A9154040036C1DE /* Crafting Table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crafting Table.png"; sourceTree = "<group>"; };
@@ -44,7 +38,6 @@
 		5479A09F1A8AD863003514DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5479A0A11A8AD863003514DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5479A0A41A8AD863003514DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5479A0AF1A8AD863003514DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		548FDDF31A9199EC0012D63B /* SwiftJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftJSON.swift; sourceTree = "<group>"; };
 		54A9B3A21A8C123E00859805 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		54A9B3A61A8C1E7B00859805 /* ServerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerOptions.swift; sourceTree = "<group>"; };
@@ -53,13 +46,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5479A0951A8AD863003514DB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5479A0A71A8AD863003514DB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -96,10 +82,12 @@
 				54424E101A901AD200F3E7FE /* TaskQueue.swift */,
 				548FDDF31A9199EC0012D63B /* SwiftJSON.swift */,
 				54A9B3A61A8C1E7B00859805 /* ServerOptions.swift */,
+				5414CD8D1A92C4B100703B93 /* ServerProperties.swift */,
 				54A9B3A81A8C2FDF00859805 /* Data.swift */,
 				5479A0A11A8AD863003514DB /* Images.xcassets */,
 				5459A4891A9154040036C1DE /* Crafting Table.png */,
 				5459A48B1A915BA60036C1DE /* donate_paypal.png */,
+				542296871A91AA24001EB0CB /* server.properties */,
 				5479A0A31A8AD863003514DB /* Main.storyboard */,
 				5479A09B1A8AD863003514DB /* Supporting Files */,
 			);
@@ -110,14 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				5479A09C1A8AD863003514DB /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5479A0AE1A8AD863003514DB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5479A0AF1A8AD863003514DB /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,10 +134,6 @@
 					5479A0971A8AD863003514DB = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					5479A0A91A8AD863003514DB = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 5479A0971A8AD863003514DB;
-					};
 				};
 			};
 			buildConfigurationList = 5479A0931A8AD863003514DB /* Build configuration list for PBXProject "AutoMCServer" */;
@@ -186,14 +162,8 @@
 				5479A0A21A8AD863003514DB /* Images.xcassets in Resources */,
 				5459A48C1A915BA60036C1DE /* donate_paypal.png in Resources */,
 				5479A0A51A8AD863003514DB /* Main.storyboard in Resources */,
+				542296881A91AA24001EB0CB /* server.properties in Resources */,
 				5459A48A1A9154040036C1DE /* Crafting Table.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5479A0A81A8AD863003514DB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,18 +183,11 @@
 				5479A09E1A8AD863003514DB /* AppDelegate.swift in Sources */,
 				5459A48E1A9161D00036C1DE /* CompletedView.swift in Sources */,
 				54A9B3A71A8C1E7B00859805 /* ServerOptions.swift in Sources */,
+				5414CD8E1A92C4B100703B93 /* ServerProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5479A0AC1A8AD863003514DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5479A0971A8AD863003514DB /* AutoMCServer */;
-			targetProxy = 5479A0AB1A8AD863003514DB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5479A0A31A8AD863003514DB /* Main.storyboard */ = {
@@ -337,21 +300,6 @@
 			};
 			name = Release;
 		};
-		5479A0B91A8AD863003514DB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoMCServer.app/Contents/MacOS/AutoMCServer";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -373,7 +321,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		/* End XCConfigurationList section */
+/* End XCConfigurationList section */
 	};
 	rootObject = 5479A0901A8AD863003514DB /* Project object */;
 }

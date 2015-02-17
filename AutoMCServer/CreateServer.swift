@@ -6,6 +6,7 @@ class CreateServer: NSViewController {
     var fileManager = NSFileManager.defaultManager()
 
     var options:ServerOptions!
+    var properties:ServerProperties!
     var path:NSString!
     let spigot = NSURL(string: "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar")
     let latestjson = NSURL(string: "https://s3.amazonaws.com/Minecraft.Download/versions/versions.json")
@@ -19,6 +20,7 @@ class CreateServer: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         options = Data.options
+        properties = Data.properties
         path = options.path.stringByAppendingPathComponent("minecraft")
         notificationCenter.addObserver(self, selector: "receivedOut:", name: NSFileHandleDataAvailableNotification, object: nil)
         setupGUI()
@@ -149,9 +151,25 @@ class CreateServer: NSViewController {
         createFile(start, contents: sh)
         createFile(path.stringByAppendingPathComponent("eula.txt"), contents: "eula=true")
         createFile(path.stringByAppendingPathComponent("ops.txt"), contents: options.username)
+        createProperties()
         let attributes = [NSFilePosixPermissions : NSNumber(short: 0x755.shortValue)]
         fileManager.setAttributes(attributes, ofItemAtPath: start, error: nil)
         NSWorkspace.sharedWorkspace().openFile(start, withApplication: "terminal")
+    }
+    
+    func createProperties() {
+        let prop = NSBundle.mainBundle().pathForResource("server", ofType: "properties")
+        var content = String(contentsOfFile:prop!, encoding: NSUTF8StringEncoding, error: nil)
+        content = content?.replace("mobs", withString: properties.mobs.toString())
+        content = content?.replace("nether", withString: properties.nether.toString())
+        content = content?.replace("leveltype", withString: properties.leveltype.rawValue)
+        content = content?.replace("whitelist", withString: properties.whitelist.toString())
+        content = content?.replace("pvp", withString: properties.pvp.toString())
+        content = content?.replace("difficulty", withString: String(properties.difficulty.rawValue))
+        content = content?.replace("gamemode", withString: String(properties.gamemode.rawValue))
+        content = content?.replace("maxplayers", withString: String(properties.maxplayers))
+        content = content?.replace("motd", withString: properties.motd)
+        createFile(path.stringByAppendingPathComponent("server.properties"), contents: content!)
     }
     
     func createFile(fpath: String, contents: String) {
@@ -178,5 +196,17 @@ extension NSTextView {
             self.textStorage?.appendAttributedString(NSAttributedString(string: "\(string) \n"))
             self.scrollToEndOfDocument(nil)
         })
+    }
+}
+
+extension String {
+    func replace(target: String, withString: String) -> String {
+        return self.stringByReplacingOccurrencesOfString("{\(target)}", withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+}
+
+extension Bool {
+    func toString() -> String {
+        return self.boolValue ? "true" : "false"
     }
 }

@@ -13,8 +13,11 @@ enum Difficulty: Int {
     case Hard = 3
 }
 
-enum LevelType {
-    case DEFAULT, FLAT, LARGEBIOMES, AMPLIFIED
+enum LevelType: String {
+    case DEFAULT = "DEFAULT"
+    case FLAT = "FLAT"
+    case LARGEBIOMES = "LARGEBIOMES"
+    case AMPLIFIED = "AMPLIFIED"
 }
 
 class ServerProperties {
@@ -28,7 +31,7 @@ class ServerProperties {
     var maxplayers: Int
     var motd: String
     
-    init(nether:Bool, leveltype:LevelType, mobs:Bool, whitelist:Bool,pvp:Bool, difficulty:Difficulty, gamemode:GameMode, maxplayers:Int, motd:String) {
+    init(nether:Bool, leveltype:LevelType, mobs:Bool, whitelist:Bool, pvp:Bool, difficulty:Difficulty, gamemode:GameMode, maxplayers:Int, motd:String) {
         self.nether = nether
         self.leveltype = leveltype
         self.mobs = mobs

@@ -7,10 +7,16 @@
 //
 
 class Data {
-    private struct SubStruct { static var serveroptions: ServerOptions! }
+    private struct OptionsStruct { static var serveroptions: ServerOptions! }
+    private struct PropertiesStruct { static var properties: ServerProperties! }
     
     class var options: ServerOptions {
-        get { return SubStruct.serveroptions }
-        set { SubStruct.serveroptions = newValue }
+        get { return OptionsStruct.serveroptions }
+        set { OptionsStruct.serveroptions = newValue }
+    }
+    
+    class var properties: ServerProperties {
+        get { return PropertiesStruct.properties }
+        set { PropertiesStruct.properties = newValue }
     }
 }

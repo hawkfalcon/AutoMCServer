@@ -1,6 +1,23 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    @IBOutlet var folderpath: NSTextField!
+    @IBOutlet var servertype: NSSegmentedControl!
+    @IBOutlet var ram: NSTextField!
+    @IBOutlet var bytes: NSPopUpButton!
+    @IBOutlet var username: NSTextField!
+    
+    @IBOutlet var worldtype: NSPopUpButton!
+    @IBOutlet var gamemode: NSPopUpButton!
+    @IBOutlet var difficulty: NSPopUpButton!
+    @IBOutlet var maxplayers: NSTextField!
+    @IBOutlet var motd: NSTextField!
+    @IBOutlet var nether: NSButton!
+    @IBOutlet var mobs: NSButton!
+    @IBOutlet var whitelist: NSButton!
+    @IBOutlet var pvp: NSButton!
+    
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if let segue = segue as? DismissSegue {
             segue.nextViewControllerIdentifier = "SecondView"
@@ -13,17 +30,14 @@ class ViewController: NSViewController {
             bytesize = "G"
             ramv = ramv == 0 ? 2 : ramv
         }
+        
         let options = ServerOptions(path: folder.path!, servertype: getServerType(), ram: ramv, bytesize: bytesize, username: username.stringValue)
         Data.options = options
+        let properties:ServerProperties = ServerProperties(nether: nether.isPressedIn(), leveltype: LevelType(rawValue: worldtype.titleOfSelectedItem!)!, mobs: mobs.isPressedIn(), whitelist: whitelist.isPressedIn(), pvp: pvp.isPressedIn(), difficulty: Difficulty(rawValue: difficulty.indexOfSelectedItem)!, gamemode: GameMode(rawValue: gamemode.indexOfSelectedItem)!, maxplayers: maxplayers.integerValue, motd: motd.stringValue)
+        Data.properties = properties
     }
     
     var folder: NSURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Desktop"))!
-    
-    @IBOutlet var folderpath: NSTextField!
-    @IBOutlet var servertype: NSSegmentedControl!
-    @IBOutlet var ram: NSTextField!
-    @IBOutlet var bytes: NSPopUpButton!
-    @IBOutlet var username: NSTextField!
 
     @IBAction func choosefolder(sender: AnyObject) {
         var openPanel = NSOpenPanel()
@@ -55,4 +69,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
     }
 }
-
+extension NSButton {
+    func isPressedIn() -> Bool {
+        return self.state == 1 ? true : false
+    }
+}

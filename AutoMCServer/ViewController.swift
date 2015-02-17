@@ -30,10 +30,14 @@ class ViewController: NSViewController {
             bytesize = "G"
             ramv = ramv == 0 ? 2 : ramv
         }
-        
+        var maxplayer = maxplayers.integerValue
+        maxplayer = maxplayer == 0 ? 20 : maxplayer
+        var motds = motd.stringValue
+        motds = motds == "" ? "A Minecraft Server" : motds
+
         let options = ServerOptions(path: folder.path!, servertype: getServerType(), ram: ramv, bytesize: bytesize, username: username.stringValue)
         Data.options = options
-        let properties:ServerProperties = ServerProperties(nether: nether.isPressedIn(), leveltype: LevelType(rawValue: worldtype.titleOfSelectedItem!)!, mobs: mobs.isPressedIn(), whitelist: whitelist.isPressedIn(), pvp: pvp.isPressedIn(), difficulty: Difficulty(rawValue: difficulty.indexOfSelectedItem)!, gamemode: GameMode(rawValue: gamemode.indexOfSelectedItem)!, maxplayers: maxplayers.integerValue, motd: motd.stringValue)
+        let properties:ServerProperties = ServerProperties(nether: nether.isPressedIn(), leveltype: LevelType(rawValue: worldtype.titleOfSelectedItem!)!, mobs: mobs.isPressedIn(), whitelist: whitelist.isPressedIn(), pvp: pvp.isPressedIn(), difficulty: Difficulty(rawValue: difficulty.indexOfSelectedItem)!, gamemode: GameMode(rawValue: gamemode.indexOfSelectedItem)!, maxplayers: maxplayer, motd: motds)
         Data.properties = properties
     }
     

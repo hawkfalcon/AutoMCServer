@@ -25,7 +25,7 @@ class TopLevelWindowController: NSWindowController {
     var containerViewController: ContainerViewController! {
         didSet {
             // setNewViewController depends on containerViewController being set.
-            setNewViewController("FirstView")
+            setNewViewController("OptionsView")
         }
     }
     

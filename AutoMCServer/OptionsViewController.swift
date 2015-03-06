@@ -1,12 +1,14 @@
 import Cocoa
 
-class ViewController: NSViewController {
+class OptionsViewController: NSViewController {
     
-    @IBOutlet var folderpath: NSTextField!
+    var folder: NSURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Desktop"))!
+
     @IBOutlet var servertype: NSSegmentedControl!
     @IBOutlet var ram: NSTextField!
     @IBOutlet var bytes: NSPopUpButton!
     @IBOutlet var username: NSTextField!
+    @IBOutlet var choosefolder: NSPopUpButton!
     
     @IBOutlet var worldtype: NSPopUpButton!
     @IBOutlet var gamemode: NSPopUpButton!
@@ -18,9 +20,14 @@ class ViewController: NSViewController {
     @IBOutlet var whitelist: NSButton!
     @IBOutlet var pvp: NSButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        choosefolder.itemAtIndex(0)?.image = NSWorkspace.sharedWorkspace().iconForFile(folder.path!)
+    }
+    
     override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
         if let segue = segue as? DismissSegue {
-            segue.nextViewControllerIdentifier = "SecondView"
+            segue.nextViewControllerIdentifier = "CreationView"
         }
         var ramv = ram.integerValue
         var bytesize = "M"
@@ -41,8 +48,6 @@ class ViewController: NSViewController {
         Data.properties = properties
     }
     
-    var folder: NSURL = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("Desktop"))!
-
     @IBAction func choosefolder(sender: AnyObject) {
         var openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
@@ -52,7 +57,9 @@ class ViewController: NSViewController {
         openPanel.beginWithCompletionHandler { (result) -> Void in
             if result == NSFileHandlingPanelOKButton {
                 self.folder = openPanel.URLs[0] as NSURL
-                self.folderpath.stringValue = self.folder.lastPathComponent!
+                self.choosefolder.itemAtIndex(0)?.title = self.folder.lastPathComponent!
+                self.choosefolder.itemAtIndex(0)?.image = NSWorkspace.sharedWorkspace().iconForFile(self.folder.path!)
+                self.choosefolder.selectItemAtIndex(0)
             }
         }
     }
@@ -67,10 +74,6 @@ class ViewController: NSViewController {
     
     func getServerType() -> ServerType {
         return ServerType(rawValue: servertype.labelForSegment(servertype.selectedSegment)!)!
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }
 extension NSButton {

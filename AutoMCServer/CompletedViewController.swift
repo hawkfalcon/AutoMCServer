@@ -1,6 +1,6 @@
 import Cocoa
 
-class CompletedView: NSViewController {
+class CompletedViewController: NSViewController {
     var options: ServerOptions!
     @IBOutlet var ip: NSTextField!
 

@@ -1,16 +1,25 @@
 import Cocoa
+import SwiftHTTP
 
-class CreateServer: NSViewController {
+class CreationViewController: NSViewController {
     
     var notificationCenter = NSNotificationCenter.defaultCenter()
+
     var fileManager = NSFileManager.defaultManager()
+    
+    var total = 0.0
 
     var options:ServerOptions!
     var properties:ServerProperties!
     var path:NSString!
-    let spigot = NSURL(string: "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar")
+    let spigot = "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
     let latestjson = NSURL(string: "https://s3.amazonaws.com/Minecraft.Download/versions/versions.json")
 
+    @IBOutlet var progresstext: NSTextField!
+    @IBOutlet var subtext: NSTextField!
+    @IBOutlet var percent: NSTextField!
+    @IBOutlet var progress: NSProgressIndicator!
+    
     @IBOutlet var ram: NSTextField!
     @IBOutlet var servertype: NSTextField!
     @IBOutlet var username: NSTextField!
@@ -39,6 +48,8 @@ class CreateServer: NSViewController {
     
     func startCreation() {
         if (!self.fileManager.fileExistsAtPath(self.path)) {
+            self.updateGui(0.0, label: "Creating folder")
+            updateSub(" ")
             self.fileManager.createDirectoryAtPath(self.path, withIntermediateDirectories: false, attributes: nil, error: nil)
         }
         if (options.servertype == ServerType.Vanilla) {
@@ -52,15 +63,19 @@ class CreateServer: NSViewController {
         let queue = TaskQueue()
         queue.tasks +=! {
             self.output.append("Starting download of BuildTools...")
+            self.updateGui(0.00, label: "Starting download of BuildTools...")
         }
         
-        queue.tasks +=~ {
-            let jar = NSData(contentsOfURL: self.spigot!)
-            self.fileManager.createFileAtPath(self.path + "/BuildTools.jar", contents: jar, attributes: nil)
+        queue.tasks +=~ { result, next in
+            let fileUrl = NSURL(fileURLWithPath: self.path + "/BuildTools.jar")
+            self.downloadFile(self.spigot, toPath: fileUrl!) {(_) in
+                next(nil)
+            }
         }
         
         queue.tasks +=! {
             self.output.append("Downloaded BuildTools.jar")
+            self.updateGui(1.0, label: "Downloaded BuildTools")
             self.output.append("Running BuildTools...")
         }
         
@@ -93,19 +108,25 @@ class CreateServer: NSViewController {
         let queue = TaskQueue()
         queue.tasks +=! {
             self.output.append("Starting download of minecraft_server.jar...")
+            self.updateGui(0.25, label: "Starting download of minecraft_server.jar...")
         }
         
-        queue.tasks +=~ {
+        queue.tasks +=~ { result, next in
+            self.updateGui(0.5, label: "Getting latest minecraft version...")
             let dataFromNetworking = NSData(contentsOfURL: self.latestjson!)
             let json = JSON(data: dataFromNetworking!)
             let version = json["latest"]["release"]
-            let vanilla = NSURL(string: "https://s3.amazonaws.com/Minecraft.Download/versions/\(version)/minecraft_server.\(version).jar")
-            let jar = NSData(contentsOfURL: vanilla!)
-            self.fileManager.createFileAtPath(self.path + "/minecraft_server.jar", contents: jar, attributes: nil)
+            let vanilla = "https://s3.amazonaws.com/Minecraft.Download/versions/\(version)/minecraft_server.\(version).jar"
+            let fileUrl = NSURL(fileURLWithPath: self.path + "/minecraft_server.jar")
+            self.updateGui(0.0, label: "Downloading Minecraft Jar...")
+            self.downloadFile(vanilla, toPath: fileUrl!) {(_) in
+                next(nil)
+            }
         }
 
         queue.tasks +=! {
             self.output.append("Downloaded minecraft_server.jar")
+            self.updateGui(0.0, label: "Downloaded minecraft_server.jar")
         }
         
         queue.run {
@@ -118,9 +139,79 @@ class CreateServer: NSViewController {
         let data = fh.availableData
         if data.length > 0 {
             let dstring = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            output.append(dstring)
+            self.parseOutput(dstring)
             fh.waitForDataInBackgroundAndNotify()
         }
+    }
+    
+    var perc = 0.00
+    func parseOutput(line: String) {
+        perc += 1/5800
+        output.append(line)
+        self.updateGui(perc, label: nil)
+        let trimmed = line.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let check = ["Starting clone": "Downloading files", "Maven does not exist":"Downloading Maven", "Pulling updates":"Getting updates","https://s3.amazonaws.com/Minecraft.Download/":"Downloading Minecraft Jar", "Final mapped jar":"Preparing Minecraft Jar","Remapping final jar":"Modifying Minecraft Jar","Decompiling class net/minecraft/server/WorldType":"Decompiling", "Applying CraftBukkit Patches":"Creating CraftBukkit","Compiling Bukkit":"Compiling Bukkit","Compiling CraftBukkit":"Compiling CraftBukkit","Applying patches to Spigot-API":"Applying Spigot changes","Building Spigot-API":"Building Spigot-API","Building Spigot ":"Building Spigot","Success! Everything compiled successfully.":"Success! Everything compiled successfully."]
+        for (find, print) in check {
+            if (trimmed.rangeOfString(find) != nil) {
+                perc += 0.014
+                updateGui(perc, label: "\(print)...")
+                updateSub(" ")
+            }
+        }
+        let subs = ["Starting clone of":" ","Extracted: work/decompile-":"/","Decompiling class":"/", "Applying:":"Applying: ","Patching with":" ", "Running":".","BUILD SUCCESS":" ", "Building jar":"/", "Starting download":"/"]
+        for (needle, split) in subs {
+            setSubFor(trimmed, needle: needle, split: split)
+        }
+    }
+    
+    func setSubFor(line: String, needle: String, split: String) {
+        if (line.rangeOfString(needle) != nil) {
+            updateSub(line.componentsSeparatedByString(split).last!)
+        }
+    }
+    
+    func downloadFile(fromUrl: NSString, toPath: NSURL, done: () -> ()) {
+        var request = HTTPTask()
+        let server = options.servertype.rawValue
+        let downloadTask = request.download(fromUrl, parameters: nil, progress: {(complete: Double) in
+            self.updateGuiFast(complete)
+            }, success: {(response: HTTPResponse) in
+                if response.responseObject != nil {
+                    //we MUST copy the file from its temp location to a permanent location.
+                    if let url = response.responseObject as? NSURL {
+                        if let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as? String {
+                            if let fileName = response.suggestedFilename {
+                                if let newPath = NSURL(fileURLWithPath: "\(path)/\(fileName)") {
+                                    let fileManager = NSFileManager.defaultManager()
+                                    fileManager.removeItemAtURL(toPath, error: nil)
+                                    fileManager.moveItemAtURL(url, toURL: toPath, error:nil)
+                                    done()
+                                }
+                            }
+                        }
+                    }
+                }
+            }, failure: {(error: NSError, response: HTTPResponse?) in
+                println("failure")
+        })
+    }
+    
+    func updateGui(amount: Double, label: String?) {
+        let amountp = Int(amount * 100)
+        self.percent.stringValue = "\(amountp)%"
+        self.progress.doubleValue = amount
+        if label != nil {
+            self.progresstext.stringValue = label!
+        }
+    }
+    
+    func updateSub(sub: String) {
+        self.subtext.stringValue = sub.truncate(60)
+    }
+
+    func updateGuiFast(amount: Double) {
+        self.percent.stringValue = "\(Int(amount*100))%"
+        self.progress.doubleValue = amount
     }
     
     func cleanFolder() {
@@ -139,6 +230,7 @@ class CreateServer: NSViewController {
     }
     
     func createFiles() {
+        self.updateGui(0.8, label: "Creating files")
         var serverjar = getFullName("spigot")
         if options.servertype == ServerType.Bukkit {
             serverjar = getFullName("craftbukkit")
@@ -151,7 +243,9 @@ class CreateServer: NSViewController {
         createFile(start, contents: sh)
         createFile(path.stringByAppendingPathComponent("eula.txt"), contents: "eula=true")
         createFile(path.stringByAppendingPathComponent("ops.txt"), contents: options.username)
+        self.updateGui(0.9, label: "Creating properties")
         createProperties()
+        self.updateGui(1.0, label: "Launching server")
         let attributes = [NSFilePosixPermissions : NSNumber(short: 0x755.shortValue)]
         fileManager.setAttributes(attributes, ofItemAtPath: start, error: nil)
         NSWorkspace.sharedWorkspace().openFile(start, withApplication: "terminal")
@@ -187,6 +281,16 @@ class CreateServer: NSViewController {
         var longestCompletion = ""
         var match = path.stringByAppendingPathComponent(partial).completePathIntoString(&longestCompletion, caseSensitive: false)
         return longestCompletion.lastPathComponent
+    }
+}
+
+extension String {
+    func truncate(length: Int) -> String {
+        if countElements(self) > length {
+            return self.substringToIndex(advance(self.startIndex, length))
+        } else {
+            return self
+        }
     }
 }
 
